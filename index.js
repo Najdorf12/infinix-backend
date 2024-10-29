@@ -14,13 +14,13 @@ app.use(cors());
 app.use(express.json()); // Para poder recibir datos en formato JSON
 
 // Obtiene la clave API de Resend desde las variables de entorno
-const RESEND_API_KEY = process.env.RESEND_API_KEY; // Asegúrate de definir esto en tu archivo .env
+const RESEND_API_KEY = "re_gcgSBD6n_NHfcokuaS34gDp7Rc4bm2yKp"; // Asegúrate de definir esto en tu archivo .env
 
 // Endpoint para enviar correos
 app.post('/send-email', async (req, res) => {
     const { email, wttp, message } = req.body;
 
-    try {gi
+    try {
         const response = await axios.post(
             'https://api.resend.com/emails',
             {
