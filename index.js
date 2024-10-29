@@ -1,8 +1,11 @@
 
-require('dotenv').config();
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
+import dotenv from 'dotenv';
+import express from 'express';
+import axios from 'axios';
+import cors from 'cors';
+
+// Cargar variables de entorno
+dotenv.config();
 
 const app = express();
 
@@ -21,8 +24,8 @@ app.post('/send-email', async (req, res) => {
         const response = await axios.post(
             'https://api.resend.com/emails',
             {
-                from: 'Acme <onboarding@resend.dev>',
-                to: ['agustin.morro@gmail.com'],
+                from: 'Infinix Service <info@serviciotecnicoinfinix.com.ar>',
+                to: ['info@serviciotecnicoinfinix.com.ar'],
                 subject: 'Nuevo mensaje de contacto',
                 html: `
                     <h1>Detalles del mensaje:</h1>
