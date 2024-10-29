@@ -14,6 +14,7 @@ app.use(cors({/* http://localhost:5173 https://evas-del-eden-frontend.vercel.app
     origin:"https://infinixservice.vercel.app",
     credentials: true,
 }));
+app.options('*', cors());
 
 app.use(express.json()); // Para poder recibir datos en formato JSON
 
