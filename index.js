@@ -20,7 +20,7 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY; // Asegúrate de definir esto
 app.post('/send-email', async (req, res) => {
     const { email, wttp, message } = req.body;
 
-    try {
+    try {gi
         const response = await axios.post(
             'https://api.resend.com/emails',
             {
