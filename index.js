@@ -4,10 +4,15 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+
+// Configurar CORS solo para el dominio del frontend en producción
+app.use(cors({
+  origin: 'https://infinixservice.vercel.app'
+}));
+
 app.use(express.json());
 
-const RESEND_API_KEY = "re_gcgSBD6n_NHfcokuaS34gDp7Rc4bm2yKp";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 // Endpoint para enviar correos
 app.post('/send-email', async (req, res) => {
@@ -37,7 +42,7 @@ app.post('/send-email', async (req, res) => {
 
     res.status(200).json({ message: 'Correo enviado con éxito', data: response.data });
   } catch (error) {
-    console.error('Error al enviar el correo:', error);
+    console.error('Error al enviar el correo:', error.response ? error.response.data : error.message);
     res.status(500).json({ message: 'Error al enviar el correo', error: error.message });
   }
 });
