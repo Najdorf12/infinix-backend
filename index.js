@@ -10,7 +10,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({/* http://localhost:5173 https://evas-del-eden-frontend.vercel.app */
+    origin:"https://infinixservice.vercel.app",
+    credentials: true,
+}));
+
 app.use(express.json()); // Para poder recibir datos en formato JSON
 
 // Obtiene la clave API de Resend desde las variables de entorno
