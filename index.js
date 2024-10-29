@@ -24,8 +24,8 @@ app.post('/send-email', async (req, res) => {
         const response = await axios.post(
             'https://api.resend.com/emails',
             {
-                from: 'Infinix Service <info@serviciotecnicoinfinix.com.ar>',
-                to: ['info@serviciotecnicoinfinix.com.ar'],
+                from: 'Acme <onboarding@resend.dev>',
+                to: ['agustin.morro@gmail.com'],
                 subject: 'Nuevo mensaje de contacto',
                 html: `
                     <h1>Detalles del mensaje:</h1>
