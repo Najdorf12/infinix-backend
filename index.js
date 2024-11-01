@@ -19,7 +19,7 @@ app.options('*', cors());
 app.use(express.json()); // Para poder recibir datos en formato JSON
 
 // Obtiene la clave API de Resend desde las variables de entorno
-const RESEND_API_KEY = "re_gcgSBD6n_NHfcokuaS34gDp7Rc4bm2yKp"; // Asegúrate de definir esto en tu archivo .env
+const RESEND_API_KEY = "re_SjeR9Xmy_HaZJDE7WtitVrVWvhvuWjSgD"; // Asegúrate de definir esto en tu archivo .env
 
 // Endpoint para enviar correos
 app.post('/send-email', async (req, res) => {
@@ -30,7 +30,7 @@ app.post('/send-email', async (req, res) => {
             'https://api.resend.com/emails',
             {
                 from: 'Acme <onboarding@resend.dev>',
-                to: ['agustin.morro@gmail.com'],
+                to: ['info@serviciotecnicoxiaomi.com.ar'],
                 subject: 'Nuevo mensaje de contacto',
                 html: `
                     <h1>Detalles del mensaje:</h1>
