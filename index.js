@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({/* http://localhost:5173 https://evas-del-eden-frontend.vercel.app */
-    origin:"https://infinixservice.vercel.app",
+    origin:"https://www.serviciotecnicoinfinix.com.ar",
     credentials: true,
 }));
 app.options('*', cors());
