@@ -1,4 +1,3 @@
-
 import dotenv from 'dotenv';
 import express from 'express';
 import axios from 'axios';
@@ -10,13 +9,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({/* http://localhost:5173 https://evas-del-eden-frontend.vercel.app */
-    origin:"https://www.serviciotecnicoinfinix.com.ar",
+app.use(cors({
+    origin: "https://www.serviciotecnicoinfinix.com.ar",
     credentials: true,
 }));
 app.options('*', cors());
 
-app.use(express.json()); // Para poder recibir datos en formato JSON
+app.use(express.json()); // Para recibir datos en formato JSON
 
 // Obtiene la clave API de Resend desde las variables de entorno
 const RESEND_API_KEY = "re_SjeR9Xmy_HaZJDE7WtitVrVWvhvuWjSgD"; // Asegúrate de definir esto en tu archivo .env
@@ -29,7 +28,7 @@ app.post('/send-email', async (req, res) => {
         const response = await axios.post(
             'https://api.resend.com/emails',
             {
-                from: 'Acme <onboarding@resend.dev>',
+                from: 'Infinix Service <https://www.serviciotecnicoinfinix.com.ar>', // Cambia a tu dominio autenticado
                 to: ['info@serviciotecnicoxiaomi.com.ar'],
                 subject: 'Nuevo mensaje de contacto',
                 html: `
@@ -41,7 +40,7 @@ app.post('/send-email', async (req, res) => {
             },
             {
                 headers: {
-                    Authorization: `Bearer ${RESEND_API_KEY}`,
+                    Authorization: RESEND_API_KEY,
                     'Content-Type': 'application/json',
                 },
             }
@@ -54,8 +53,7 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
-// Inicia el servidor
-const PORT = process.env.PORT || 3001; // Usa el puerto definido en el entorno o 3001 por defecto
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
