@@ -33,7 +33,7 @@ app.post('/send-email', async (req, res) => {
 
     try {
         const { data, error } = await resend.emails.send({
-            from: "Acme <onboarding@resend.dev>", 
+            from: "Acme <https://www.serviciotecnicoinfinix.com.ar>", 
             to: ["info@serviciotecnicoxiaomi.com.ar"], 
             subject: `Consulta de ${email}.`,
             html: `
