@@ -16,6 +16,15 @@ app.use(cors({
     credentials: true,
 }));
 
+// Manejador manual para solicitudes preflight OPTIONS
+app.options('/send-email', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "https://www.serviciotecnicoinfinix.com.ar");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+    return res.status(204).send("");
+});
+
 app.use(express.json());
 
 // Endpoint para enviar correos
