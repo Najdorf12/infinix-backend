@@ -28,7 +28,7 @@ app.post('/send-email', async (req, res) => {
 
     try {
         const response = await resend.emails.send({
-            from: 'Infinix Service <https://www.serviciotecnicoinfinix.com.ar>', // Cambia a tu dominio autenticado
+            from: 'Acme <onboarding@resend.dev>', // Cambia a tu dominio autenticado Acme <onboarding@resend.dev>
             to: ['info@serviciotecnicoxiaomi.com.ar'],
             subject: 'Nuevo mensaje de contacto',
             html: `
