@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: "https://www.serviciotecnicoinfinix.com.ar",
+    origin: ["https://www.serviciotecnicoinfinix.com.ar"],
     credentials: true,
 }));
 app.options('*', cors());
