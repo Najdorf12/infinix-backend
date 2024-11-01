@@ -3,18 +3,18 @@ import express from 'express';
 import cors from 'cors';
 import { Resend } from 'resend';
 
-// Cargar variables de entorno
 dotenv.config();
 
 const app = express();
-const resend = new Resend("re_SjeR9Xmy_HaZJDE7WtitVrVWvhvuWjSgD"); // Obtiene la clave API desde el archivo .env
+const resend = new Resend("re_SjeR9Xmy_HaZJDE7WtitVrVWvhvuWjSgD");
 
-// Middleware
+// Middleware de CORS
 app.use(cors({
-    origin: ["https://www.serviciotecnicoinfinix.com.ar"],
+    origin: "https://www.serviciotecnicoinfinix.com.ar",
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
 }));
-app.options('*', cors());
 
 app.use(express.json()); // Para recibir datos en formato JSON
 
