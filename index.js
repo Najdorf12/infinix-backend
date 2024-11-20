@@ -13,7 +13,7 @@ app.use(
     cors({
       origin: [
         "http://localhost:5173", 
-        "https://infinixservice-5hii909hk-najdorfs-projects.vercel.app" // URL temporal de Vercel
+        "https://www.serviciotecnicoinfinix.com.ar" // URL temporal de Vercel
       ],
       methods: ["GET", "POST", "OPTIONS"],
       allowedHeaders: ["Content-Type", "Authorization"],
@@ -25,7 +25,7 @@ app.use(
   app.options("/send-email", (req, res) => {
     res.header(
       "Access-Control-Allow-Origin",
-      "https://infinixservice-5hii909hk-najdorfs-projects.vercel.app"
+      "https://www.serviciotecnicoinfinix.com.ar"
     );
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
@@ -51,7 +51,7 @@ app.post("/send-email", async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"Servicio Técnico" <${EMAIL_USER}>`,
-      to: "info@serviciotecnicoxiaomi.com.ar",
+      to: "info@serviciotecnicoinfinix.com.ar",
       subject: `Consulta de ${email}`,
       html: `
                 <h1>Detalles del contacto</h1>
